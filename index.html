@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>NordFlow Tasks</title>
+<link rel="icon" type="image/png" href="Info/logoicon.png">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<div id="root">
+
+  <!-- ======================= ЭКРАН ВХОДА ======================= -->
+  <section id="login-screen" class="login-screen hidden">
+
+    <!-- Обложка трекера -->
+    <aside class="login-cover" aria-hidden="true">
+      <img class="login-cover-img" src="Info/coverhero.png" alt="">
+      <div class="login-cover-pattern"></div>
+      <div class="login-cover-veil"></div>
+      <div class="login-cover-content">
+        <div class="login-cover-brand">
+          <img src="Info/logo_mark_white.png" alt="" class="login-cover-logo">
+          <span class="login-cover-word">NordFlow <b>Tasks</b></span>
+        </div>
+
+        <div class="login-cover-text">
+          <h2>Проекты, задачи и&nbsp;команда — в одном ритме</h2>
+          <p>Трекер для команд, которые держат курс по срокам: доски и списки, роли и уведомления, история по каждой задаче.</p>
+          <ul class="login-cover-chips">
+            <li>Доски и списки</li>
+            <li>Сроки и приоритеты</li>
+            <li>Роли и уведомления</li>
+          </ul>
+        </div>
+
+        <p class="login-cover-foot">NordFlow · рабочее пространство команды</p>
+      </div>
+    </aside>
+
+    <!-- Форма входа -->
+    <div class="login-pane">
+    <div class="login-card">
+      <div class="login-brand">
+        <img src="Info/logo_mark.png" alt="NordFlow" class="login-logo login-logo-color">
+        <img src="Info/logo_mark_white.png" alt="" class="login-logo login-logo-white">
+        <div>
+          <h1>NordFlow <b>Tasks</b></h1>
+          <p>Трекер проектов и задач</p>
+        </div>
+      </div>
+
+      <form id="login-form" autocomplete="off" novalidate>
+        <label class="field">
+          <span>Электронная почта</span>
+          <input type="email" id="login-email" placeholder="name@nordflow.ru" required>
+        </label>
+
+        <label class="field">
+          <span>Пароль</span>
+          <div class="input-with-action">
+            <input type="password" id="login-password" placeholder="••••••••" required>
+            <button type="button" class="icon-btn inside" id="toggle-password" title="Показать пароль" aria-label="Показать пароль"></button>
+          </div>
+        </label>
+
+        <p class="form-error hidden" id="login-error">Неверная почта или пароль</p>
+
+        <button type="submit" class="btn btn-cta btn-block">Войти</button>
+      </form>
+
+      <div class="login-hint">
+        <p class="hint-title">Демо-доступы</p>
+        <ul id="demo-accounts"></ul>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- ======================= РАБОЧАЯ ОБЛАСТЬ ======================= -->
+  <div id="app" class="app hidden">
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="Info/logo_mark_white.png" alt="" class="sidebar-logo">
+        <span>NordFlow <b>Tasks</b></span>
+      </div>
+
+      <nav class="nav" id="main-nav">
+        <a href="#/dashboard" data-route="dashboard"><span class="nav-ico" data-ico="home"></span>Главная</a>
+        <a href="#/my-tasks" data-route="my-tasks"><span class="nav-ico" data-ico="check"></span>Мои задачи</a>
+        <a href="#/projects" data-route="projects"><span class="nav-ico" data-ico="folder"></span>Проекты</a>
+        <a href="#/team" data-route="team"><span class="nav-ico" data-ico="users"></span>Команда</a>
+        <a href="#/notifications" data-route="notifications"><span class="nav-ico" data-ico="bell"></span>Уведомления
+          <span class="nav-badge hidden" id="nav-badge">0</span></a>
+        <a href="#/settings" data-route="settings"><span class="nav-ico" data-ico="gear"></span>Настройки профиля</a>
+        <a href="#/users" data-route="users" class="hidden" id="nav-users"><span class="nav-ico" data-ico="shield"></span>Управление пользователями</a>
+      </nav>
+
+      <div class="sidebar-footer" id="sidebar-user"></div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn" id="menu-btn" title="Меню" aria-label="Меню"><span data-ico="menu"></span></button>
+
+        <div class="search-wrap">
+          <span class="search-ico" data-ico="search"></span>
+          <input type="search" id="global-search" placeholder="Поиск проектов, задач и сотрудников" autocomplete="off">
+          <div class="search-results hidden" id="search-results"></div>
+        </div>
+
+        <div class="topbar-actions">
+          <button class="icon-btn" id="theme-btn" title="Сменить тему" aria-label="Сменить тему"><span data-ico="moon"></span></button>
+          <button class="icon-btn with-dot" id="bell-btn" title="Уведомления" aria-label="Уведомления">
+            <span data-ico="bell"></span>
+            <span class="dot hidden" id="bell-dot"></span>
+          </button>
+          <button class="avatar-btn" id="profile-btn" title="Профиль"></button>
+        </div>
+      </header>
+
+      <main class="view" id="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div id="modal-root"></div>
+  <div id="toast-root" class="toast-root"></div>
+</div>
+
+<script src="js/helpers.js"></script>
+<script src="js/seed.js"></script>
+<script src="js/store.js"></script>
+<script src="js/views-auth.js"></script>
+<script src="js/views-main.js"></script>
+<script src="js/views-tasks.js"></script>
+<script src="js/views-projects.js"></script>
+<script src="js/views-people.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
