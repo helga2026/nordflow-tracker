@@ -38,7 +38,41 @@
   <img src="assets/screens/01-login.png" alt="Экран входа NordFlow Tasks" width="850">
 </p>
 
-<!-- Остальные скриншоты добавляются: 02-dashboard.png, 03-my-tasks.png, 04-project-board.png, 05-task-card.png, 06-team.png -->
+### Главная — сводка по работе, дедлайны и проекты
+
+<p align="center">
+  <img src="assets/screens/02-dashboard.png" alt="Главная — сводка" width="850">
+</p>
+
+### Мои задачи — фильтры, список и доска
+
+<p align="center">
+  <img src="assets/screens/03-my-tasks.png" alt="Мои задачи — фильтры и список" width="850">
+</p>
+
+### Проекты — карточки с дедлайнами и участниками
+
+<p align="center">
+  <img src="assets/screens/04-projects.png" alt="Список проектов" width="850">
+</p>
+
+### Команда — роли и нагрузка сотрудников
+
+<p align="center">
+  <img src="assets/screens/05-team.png" alt="Команда — нагрузка сотрудников" width="850">
+</p>
+
+### Управление пользователями — только для администратора
+
+<p align="center">
+  <img src="assets/screens/06-users.png" alt="Управление пользователями" width="850">
+</p>
+
+### Настройки профиля — личные данные и тема
+
+<p align="center">
+  <img src="assets/screens/07-settings.png" alt="Настройки профиля" width="850">
+</p>
 
 ## Запуск
 
